@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thyroid Prediction</title>
-    <style>
+  <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
@@ -44,125 +44,125 @@
 </head>
 <body>
   <h1>Thyroid Diagnosis Predictor</h1>
-  <form id="predictionForm">
-    <label for="on_thyroxine">On Thyroxine (0 or 1):</label>
-    <input type="number" id="on_thyroxine" placeholder="e.g., 0 or 1" required>
-    <br>
+  <div class="form-container">
+    <form id="prediction-form">
+      <label for="on_thyroxine">On Thyroxine (0 or 1):</label>
+      <input type="number" id="on_thyroxine" required><br>
 
-    <label for="query_on_thyroxine">Query On Thyroxine (0 or 1):</label>
-    <input type="number" id="query_on_thyroxine" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="query_on_thyroxine">Query On Thyroxine (0 or 1):</label>
+      <input type="number" id="query_on_thyroxine" required><br>
 
-    <label for="on_antithyroid_medication">On Antithyroid Medication (0 or 1):</label>
-    <input type="number" id="on_antithyroid_medication" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="on_antithyroid_medication">On Antithyroid Medication (0 or 1):</label>
+      <input type="number" id="on_antithyroid_medication" required><br>
 
-    <label for="sick">Sick (0 or 1):</label>
-    <input type="number" id="sick" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="sick">Sick (0 or 1):</label>
+      <input type="number" id="sick" required><br>
 
-    <label for="pregnant">Pregnant (0 or 1):</label>
-    <input type="number" id="pregnant" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="pregnant">Pregnant (0 or 1):</label>
+      <input type="number" id="pregnant" required><br>
 
-    <label for="thyroid_surgery">Thyroid Surgery (0 or 1):</label>
-    <input type="number" id="thyroid_surgery" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="thyroid_surgery">Thyroid Surgery (0 or 1):</label>
+      <input type="number" id="thyroid_surgery" required><br>
 
-    <label for="I131_treatment">I131 Treatment (0 or 1):</label>
-    <input type="number" id="I131_treatment" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="I131_treatment">I131 Treatment (0 or 1):</label>
+      <input type="number" id="I131_treatment" required><br>
 
-    <label for="query_hypothyroid">Query Hypothyroid (0 or 1):</label>
-    <input type="number" id="query_hypothyroid" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="query_hypothyroid">Query Hypothyroid (0 or 1):</label>
+      <input type="number" id="query_hypothyroid" required><br>
 
-    <label for="query_hyperthyroid">Query Hyperthyroid (0 or 1):</label>
-    <input type="number" id="query_hyperthyroid" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="query_hyperthyroid">Query Hyperthyroid (0 or 1):</label>
+      <input type="number" id="query_hyperthyroid" required><br>
 
-    <label for="lithium">Lithium (0 or 1):</label>
-    <input type="number" id="lithium" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="lithium">Lithium (0 or 1):</label>
+      <input type="number" id="lithium" required><br>
 
-    <label for="goitre">Goitre (0 or 1):</label>
-    <input type="number" id="goitre" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="goitre">Goitre (0 or 1):</label>
+      <input type="number" id="goitre" required><br>
 
-    <label for="tumor">Tumor (0 or 1):</label>
-    <input type="number" id="tumor" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="tumor">Tumor (0 or 1):</label>
+      <input type="number" id="tumor" required><br>
 
-    <label for="hypopituitary">Hypopituitary (0 or 1):</label>
-    <input type="number" id="hypopituitary" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="hypopituitary">Hypopituitary (0 or 1):</label>
+      <input type="number" id="hypopituitary" required><br>
 
-    <label for="psych">Psych (0 or 1):</label>
-    <input type="number" id="psych" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="psych">Psych (0 or 1):</label>
+      <input type="number" id="psych" required><br>
 
-    <label for="TSH_measured">TSH Measured (0 or 1):</label>
-    <input type="number" id="TSH_measured" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="TSH_measured">TSH Measured (0 or 1):</label>
+      <input type="number" id="TSH_measured" required><br>
 
-    <label for="T3_measured">T3 Measured (0 or 1):</label>
-    <input type="number" id="T3_measured" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="T3_measured">T3 Measured (0 or 1):</label>
+      <input type="number" id="T3_measured" required><br>
 
-    <label for="TT4_measured">TT4 Measured (0 or 1):</label>
-    <input type="number" id="TT4_measured" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="TT4_measured">TT4 Measured (0 or 1):</label>
+      <input type="number" id="TT4_measured" required><br>
 
-    <label for="T4U_measured">T4U Measured (0 or 1):</label>
-    <input type="number" id="T4U_measured" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="T4U_measured">T4U Measured (0 or 1):</label>
+      <input type="number" id="T4U_measured" required><br>
 
-    <label for="FTI_measured">FTI Measured (0 or 1):</label>
-    <input type="number" id="FTI_measured" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="FTI_measured">FTI Measured (0 or 1):</label>
+      <input type="number" id="FTI_measured" required><br>
 
-    <label for="TBG_measured">TBG Measured (0 or 1):</label>
-    <input type="number" id="TBG_measured" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="TBG_measured">TBG Measured (0 or 1):</label>
+      <input type="number" id="TBG_measured" required><br>
 
-    <label for="age">Age:</label>
-    <input type="number" id="age" placeholder="e.g., 35" required>
-    <br>
+      <label for="age">Age:</label>
+      <input type="number" id="age" required><br>
 
-    <label for="sex">Sex (0 for Female, 1 for Male):</label>
-    <input type="number" id="sex" placeholder="e.g., 0 or 1" required>
-    <br>
+      <label for="sex">Sex (0 for Female, 1 for Male):</label>
+      <input type="number" id="sex" required><br>
 
-    <label for="TSH">TSH Level:</label>
-    <input type="number" id="TSH" step="any" placeholder="e.g., 1.3" required>
-    <br>
+      <label for="TSH">TSH Level:</label>
+      <input type="number" id="TSH" step="any" required><br>
 
-    <label for="T3">T3 Level:</label>
-    <input type="number" id="T3" step="any" placeholder="e.g., 2.5" required>
-    <br>
+      <label for="T3">T3 Level:</label>
+      <input type="number" id="T3" step="any" required><br>
 
-    <label for="TT4">TT4 Level:</label>
-    <input type="number" id="TT4" step="any" placeholder="e.g., 100" required>
-    <br>
+      <label for="TT4">TT4 Level:</label>
+      <input type="number" id="TT4" step="any" required><br>
 
-    <label for="T4U">T4U Level:</label>
-    <input type="number" id="T4U" step="any" placeholder="e.g., 0.9" required>
-    <br>
+      <label for="T4U">T4U Level:</label>
+      <input type="number" id="T4U" step="any" required><br>
 
-    <label for="FTI">FTI Level:</label>
-    <input type="number" id="FTI" step="any" placeholder="e.g., 120" required>
-    <br>
+      <label for="FTI">FTI Level:</label>
+      <input type="number" id="FTI" step="any" required><br>
 
-    <label for="TBG">TBG Level:</label>
-    <input type="number" id="TBG" step="any" placeholder="e.g., 0.0" required>
-    <br>
+      <label for="TBG">TBG Level:</label>
+      <input type="number" id="TBG" step="any" required><br>
 
-    <button type="button" onclick="predict()">Predict</button>
-  </form>
+      <button type="submit">Predict</button>
+    </form>
 
-  <h2>Prediction Result:</h2>
-  <p id="predictionResult">Awaiting prediction...</p>
+    <h2>Prediction Result:</h2>
+    <p id="predictionResult">Awaiting prediction...</p>
+  </div>
 
-  <script src="script.js"></script>
+  <script>
+    const API_BASE_URL = "https://ci-goleproject.onrender.com";
+    document.getElementById('prediction-form').addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        const features = [];
+        for (let i = 1; i <= 26; i++) {
+            const featureValue = parseFloat(document.getElementById(`feature${i}`).value);
+            features.push(featureValue);
+        }
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/predict`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ features })
+            });
+
+            const data = await response.json();
+            document.getElementById('predictionResult').textContent = `Prediction: ${data.prediction}, Probability: ${data.probability}`;
+        } catch (error) {
+            document.getElementById('predictionResult').textContent = 'Error: ' + error.message;
+        }
+    });
+  </script>
 </body>
 </html>
