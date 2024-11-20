@@ -6,39 +6,93 @@
   <title>Thyroid Prediction</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       text-align: center;
       margin: 20px;
-      background-color: #f4f4f9;
+      background-color: #f0f8ff;
+      color: #333;
     }
+
     .form-container {
       max-width: 600px;
       margin: auto;
-      padding: 20px;
+      padding: 30px;
       border: 1px solid #ccc;
       border-radius: 10px;
       background-color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
+
+    h1 {
+      font-size: 2.5em;
+      color: #2e3d58;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
     input, button {
       width: 90%;
-      padding: 10px;
-      margin: 10px;
+      padding: 12px;
+      margin: 10px 0;
       font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
     }
+
     button {
       background-color: #007BFF;
       color: white;
-      border: none;
+      font-size: 1.2em;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
+
     button:hover {
       background-color: #0056b3;
     }
-    .result {
+
+    .result-container {
       margin-top: 20px;
-      font-size: 18px;
+      font-size: 1.8em;
       font-weight: bold;
       color: #333;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #f1f9ff;
+      transition: transform 0.3s ease;
+    }
+
+    .result-container.success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .result-container.failure {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+    .result-container p {
+      margin: 0;
+      padding: 5px;
+    }
+
+    .animated-message {
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -46,6 +100,7 @@
   <h1>Thyroid Diagnosis Predictor</h1>
   <div class="form-container">
     <form id="prediction-form">
+      <!-- Form Inputs (features) -->
       <label for="on_thyroxine">On Thyroxine (0 or 1):</label>
       <input type="number" id="on_thyroxine" required><br>
 
@@ -133,14 +188,12 @@
       <button type="submit">Predict</button>
     </form>
 
-    <h2>Prediction Result:</h2>
-    <p id="predictionResult">Awaiting prediction...</p>
+    <div id="result" class="result-container animated-message"></div>
   </div>
 
   <script>
     const API_BASE_URL = "https://ci-goleproject.onrender.com";
 
-    // Handle form submission and make API request
     document.getElementById('prediction-form').addEventListener('submit', async function(event) {
         event.preventDefault();
 
@@ -152,7 +205,6 @@
             'TBG_measured', 'age', 'sex', 'TSH', 'T3', 'TT4', 'T4U', 'FTI', 'TBG'
         ];
 
-        // Collecting the input values for the features
         featureIds.forEach(id => {
             const featureValue = parseFloat(document.getElementById(id).value);
             features.push(featureValue);
@@ -168,15 +220,18 @@
             });
 
             const data = await response.json();
-
-            // Check the prediction and display the appropriate message
-            const predictionMessage = data.prediction === 'Thyroid disease detected' ? 
-                'Thyroid disease detected' : 'No thyroid disease';
-            
-            document.getElementById('predictionResult').textContent = predictionMessage;
-
+            const resultDiv = document.getElementById('result');
+            if (data.prediction === 'Thyroid disease detected') {
+                resultDiv.textContent = '🔴 Thyroid Disease Detected! 🔴';
+                resultDiv.classList.add('failure');
+                resultDiv.classList.remove('success');
+            } else {
+                resultDiv.textContent = '✅ No Thyroid Disease! ✅';
+                resultDiv.classList.add('success');
+                resultDiv.classList.remove('failure');
+            }
         } catch (error) {
-            document.getElementById('predictionResult').textContent = 'Error: ' + error.message;
+            document.getElementById('result').textContent = 'Oops! Something went wrong... 😞';
         }
     });
   </script>
