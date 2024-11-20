@@ -3,7 +3,7 @@ document.getElementById('prediction-form').addEventListener('submit', async func
     event.preventDefault();
 
     const features = [];
-    for (let i = 1; i <= 27; i++) {
+    for (let i = 3; i <= 22; i++) {
         const featureValue = parseFloat(document.getElementById(`feature${i}`).value);
         features.push(featureValue);
     }
