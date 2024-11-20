@@ -139,14 +139,23 @@
 
   <script>
     const API_BASE_URL = "https://ci-goleproject.onrender.com";
+    
     document.getElementById('prediction-form').addEventListener('submit', async function(event) {
         event.preventDefault();
 
+        // Collecting values from the form
         const features = [];
-        for (let i = 1; i <= 26; i++) {
-            const featureValue = parseFloat(document.getElementById(`feature${i}`).value);
+        const featureIds = [
+            'on_thyroxine', 'query_on_thyroxine', 'on_antithyroid_medication', 'sick', 'pregnant', 'thyroid_surgery', 
+            'I131_treatment', 'query_hypothyroid', 'query_hyperthyroid', 'lithium', 'goitre', 'tumor', 
+            'hypopituitary', 'psych', 'TSH_measured', 'T3_measured', 'TT4_measured', 'T4U_measured', 'FTI_measured', 
+            'TBG_measured', 'age', 'sex', 'TSH', 'T3', 'TT4', 'T4U', 'FTI', 'TBG'
+        ];
+
+        featureIds.forEach(id => {
+            const featureValue = parseFloat(document.getElementById(id).value);
             features.push(featureValue);
-        }
+        });
 
         try {
             const response = await fetch(`${API_BASE_URL}/predict`, {
