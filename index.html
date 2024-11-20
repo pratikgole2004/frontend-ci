@@ -130,7 +130,7 @@
       <label for="TBG">TBG Level:</label>
       <input type="number" id="TBG" step="any" required><br>
 
-      <button onclick="getprediction()">Predict</button>
+      <button type="submit">Predict</button>
     </form>
 
     <h2>Prediction Result:</h2>
@@ -139,10 +139,11 @@
 
   <script>
     const API_BASE_URL = "https://ci-goleproject.onrender.com";
-    function getprediction(event) {
+
+    // Correctly define the async function
+    document.getElementById('prediction-form').addEventListener('submit', async function(event) {
         event.preventDefault();
 
-        // Collecting values from the form
         const features = [];
         const featureIds = [
             'on_thyroxine', 'query_on_thyroxine', 'on_antithyroid_medication', 'sick', 'pregnant', 'thyroid_surgery', 
