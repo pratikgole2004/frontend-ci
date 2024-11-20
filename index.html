@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thyroid Disease Prediction</title>
-  <style>
+  <title>Thyroid Prediction</title>
+    <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
@@ -43,37 +43,126 @@
   </style>
 </head>
 <body>
-  <div class="form-container">
-    <h1>Thyroid Disease Prediction</h1>
-    <form id="prediction-form">
-      <!-- Input fields from feature1 to feature27 -->
-     <form>
-  <input type="number" id="feature1" placeholder="On Thyroxine (0 or 1)" required>
-  <input type="number" id="feature2" placeholder="Query On Thyroxine (0 or 1)" required>
-  <input type="number" id="feature3" placeholder="On Antithyroid Medication (0 or 1)" required>
-  <input type="number" id="feature4" placeholder="Sick (0 or 1)" required>
-  <input type="number" id="feature5" placeholder="Pregnant (0 or 1)" required>
-  <input type="number" id="feature6" placeholder="Thyroid Surgery (0 or 1)" required>
-  <input type="number" id="feature7" placeholder="I131 Treatment (0 or 1)" required>
-  <input type="number" id="feature8" placeholder="Query Hypothyroid (0 or 1)" required>
-  <input type="number" id="feature9" placeholder="Query Hyperthyroid (0 or 1)" required>
-  <input type="number" id="feature10" placeholder="Lithium (0 or 1)" required>
-  <input type="number" id="feature11" placeholder="Goitre (0 or 1)" required>
-  <input type="number" id="feature12" placeholder="Tumor (0 or 1)" required>
-  <input type="number" id="feature13" placeholder="Hypopituitary (0 or 1)" required>
-  <input type="number" id="feature14" placeholder="Psych (0 or 1)" required>
-  <input type="number" id="feature15" placeholder="TSH Measured (0 or 1)" required>
-  <input type="number" id="feature16" placeholder="T3 Measured (0 or 1)" required>
-  <input type="number" id="feature17" placeholder="TT4 Measured (0 or 1)" required>
-  <input type="number" id="feature18" placeholder="T4U Measured (0 or 1)" required>
-  <input type="number" id="feature19" placeholder="FTI Measured (0 or 1)" required>
-  <input type="number" id="feature20" placeholder="TBG Measured (0 or 1)" required>
-</form>
+  <h1>Thyroid Diagnosis Predictor</h1>
+  <form id="predictionForm">
+    <label for="on_thyroxine">On Thyroxine (0 or 1):</label>
+    <input type="number" id="on_thyroxine" placeholder="e.g., 0 or 1" required>
+    <br>
 
-      <button type="submit">Predict</button>
-    </form>
-    <div id="result" class="result"></div>
-  </div>
+    <label for="query_on_thyroxine">Query On Thyroxine (0 or 1):</label>
+    <input type="number" id="query_on_thyroxine" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="on_antithyroid_medication">On Antithyroid Medication (0 or 1):</label>
+    <input type="number" id="on_antithyroid_medication" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="sick">Sick (0 or 1):</label>
+    <input type="number" id="sick" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="pregnant">Pregnant (0 or 1):</label>
+    <input type="number" id="pregnant" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="thyroid_surgery">Thyroid Surgery (0 or 1):</label>
+    <input type="number" id="thyroid_surgery" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="I131_treatment">I131 Treatment (0 or 1):</label>
+    <input type="number" id="I131_treatment" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="query_hypothyroid">Query Hypothyroid (0 or 1):</label>
+    <input type="number" id="query_hypothyroid" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="query_hyperthyroid">Query Hyperthyroid (0 or 1):</label>
+    <input type="number" id="query_hyperthyroid" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="lithium">Lithium (0 or 1):</label>
+    <input type="number" id="lithium" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="goitre">Goitre (0 or 1):</label>
+    <input type="number" id="goitre" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="tumor">Tumor (0 or 1):</label>
+    <input type="number" id="tumor" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="hypopituitary">Hypopituitary (0 or 1):</label>
+    <input type="number" id="hypopituitary" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="psych">Psych (0 or 1):</label>
+    <input type="number" id="psych" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="TSH_measured">TSH Measured (0 or 1):</label>
+    <input type="number" id="TSH_measured" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="T3_measured">T3 Measured (0 or 1):</label>
+    <input type="number" id="T3_measured" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="TT4_measured">TT4 Measured (0 or 1):</label>
+    <input type="number" id="TT4_measured" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="T4U_measured">T4U Measured (0 or 1):</label>
+    <input type="number" id="T4U_measured" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="FTI_measured">FTI Measured (0 or 1):</label>
+    <input type="number" id="FTI_measured" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="TBG_measured">TBG Measured (0 or 1):</label>
+    <input type="number" id="TBG_measured" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" placeholder="e.g., 35" required>
+    <br>
+
+    <label for="sex">Sex (0 for Female, 1 for Male):</label>
+    <input type="number" id="sex" placeholder="e.g., 0 or 1" required>
+    <br>
+
+    <label for="TSH">TSH Level:</label>
+    <input type="number" id="TSH" step="any" placeholder="e.g., 1.3" required>
+    <br>
+
+    <label for="T3">T3 Level:</label>
+    <input type="number" id="T3" step="any" placeholder="e.g., 2.5" required>
+    <br>
+
+    <label for="TT4">TT4 Level:</label>
+    <input type="number" id="TT4" step="any" placeholder="e.g., 100" required>
+    <br>
+
+    <label for="T4U">T4U Level:</label>
+    <input type="number" id="T4U" step="any" placeholder="e.g., 0.9" required>
+    <br>
+
+    <label for="FTI">FTI Level:</label>
+    <input type="number" id="FTI" step="any" placeholder="e.g., 120" required>
+    <br>
+
+    <label for="TBG">TBG Level:</label>
+    <input type="number" id="TBG" step="any" placeholder="e.g., 0.0" required>
+    <br>
+
+    <button type="button" onclick="predict()">Predict</button>
+  </form>
+
+  <h2>Prediction Result:</h2>
+  <p id="predictionResult">Awaiting prediction...</p>
+
   <script src="script.js"></script>
 </body>
 </html>
