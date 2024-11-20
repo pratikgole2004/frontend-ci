@@ -140,7 +140,7 @@
   <script>
     const API_BASE_URL = "https://ci-goleproject.onrender.com";
 
-    // Correctly define the async function
+    // Handle form submission and make API request
     document.getElementById('prediction-form').addEventListener('submit', async function(event) {
         event.preventDefault();
 
@@ -152,6 +152,7 @@
             'TBG_measured', 'age', 'sex', 'TSH', 'T3', 'TT4', 'T4U', 'FTI', 'TBG'
         ];
 
+        // Collecting the input values for the features
         featureIds.forEach(id => {
             const featureValue = parseFloat(document.getElementById(id).value);
             features.push(featureValue);
@@ -167,7 +168,13 @@
             });
 
             const data = await response.json();
-            document.getElementById('predictionResult').textContent = `Prediction: ${data.prediction}, Probability: ${data.probability}`;
+
+            // Check the prediction and display the appropriate message
+            const predictionMessage = data.prediction === 'Thyroid disease detected' ? 
+                'Thyroid disease detected' : 'No thyroid disease';
+            
+            document.getElementById('predictionResult').textContent = predictionMessage;
+
         } catch (error) {
             document.getElementById('predictionResult').textContent = 'Error: ' + error.message;
         }
